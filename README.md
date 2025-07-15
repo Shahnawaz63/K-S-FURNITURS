@@ -1,2 +1,2 @@
-# K-S-FURNITURS
+# K&S-FURNITURS
 e-commerce website for furniturs
