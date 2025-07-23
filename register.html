@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/register.css" />
+    <title>register&login to k&s furniturs</title>
+  </head>
+  <body>
+    <div class="container" id="register" style="display: none;">
+      <h1 class="form-title">register</h1>
+      <form method="post" action="">
+        <div class="inpute-group">
+          <i class="bi bi-person"></i>
+          <input
+            type="text"
+            name="fName"
+            id="fName"
+            placeholder="full Name"
+            required
+          />
+          <label for="fName">Full name</label>
+        </div>
+        <div class="inpute-group">
+          <i class="bi bi-envelope-at"></i>
+          <input
+            type="email"
+            name="Email"
+            id="Email"
+            placeholder="E-mail"
+            required
+          />
+          <label for="Email">E-mail</label>
+        </div>
+        <div class="inpute-group">
+          <i class="bi bi-key"></i>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+            required
+          />
+          <label for="password">password</label>
+
+          
+        </div>
+        
+        <input type="submit" class="btn signup" value="sign up" name="signup" onclick="openotp()"/>
+      </form>
+      <p class="or">------or------</p>
+      <div class="icon">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-google"></i>
+      </div>
+      <div class="links">
+        <p>Already have account?</p>
+        <button id="loginbutton">login</button>
+      </div>
+    </div>
+
+    <div class="container" id="login" >
+      <h1 class="form-title">login</h1>
+      <form method="post" action="">
+        <div class="inpute-group">
+          <i class="bi bi-envelope-at"></i>
+          <input
+            type="email"
+            name="Email"
+            id="Email"
+            placeholder="E-mail"
+            required
+          />
+          <label for="Email">E-mail</label>
+        </div>
+        <div class="inpute-group">
+          <i class="bi bi-key"></i>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+            required
+          />
+          <label for="password">password</label>
+        </div>
+        <p class="recover">
+          <a href="#">recover password</a>
+        </p>
+        <input type="submit" class="btn signin" value="sign in" name="signin"  onclick="openotpin()" />
+      </form>
+      <p class="or">------or------</p>
+      <div class="icon">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-google"></i>
+      </div>
+      <div class="links">
+        <p>dont have an account?</p>
+        <button id="registerbutton">register</button>
+      </div>
+    </div>
+    <script src="js/registration.js"></script>
+  </body>
+</html>
