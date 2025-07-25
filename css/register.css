@@ -186,7 +186,12 @@ i{
   font-size: var(--text-base);
 }
 
-
+.bi-eye-slash,.bi-eye{
+  position: relative;
+  top: 2.5rem;
+  left:0;
+  
+}
 
 .links {
   display: flex;

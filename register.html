@@ -13,7 +13,7 @@
   <body>
     <div class="container" id="register" style="display: none;">
       <h1 class="form-title">register</h1>
-      <form method="post" action="">
+      <form method="post" action="" action="" onsubmit="openotp(); return false;">
         <div class="inpute-group">
           <i class="bi bi-person"></i>
           <input
@@ -46,11 +46,11 @@
             required
           />
           <label for="password">password</label>
-
+ <i class="bi bi-eye-slash" id="rspass" onclick="shpass()"></i>
           
         </div>
         
-        <input type="submit" class="btn signup" value="sign up" name="signup" onclick="openotp()"/>
+        <input type="submit" class="btn signup" value="sign up" name="signup"/>
       </form>
       <p class="or">------or------</p>
       <div class="icon">
@@ -65,13 +65,13 @@
 
     <div class="container" id="login" >
       <h1 class="form-title">login</h1>
-      <form method="post" action="">
+      <form method="post" action="" onsubmit="openotpin(); return false;">
         <div class="inpute-group">
           <i class="bi bi-envelope-at"></i>
           <input
             type="email"
-            name="Email"
-            id="Email"
+            name="loginEmail"
+            id="loginEmail"
             placeholder="E-mail"
             required
           />
@@ -81,17 +81,18 @@
           <i class="bi bi-key"></i>
           <input
             type="password"
-            name="password"
-            id="password"
+            name="loginPassword"
+            id="loginPassword"
             placeholder="password"
             required
           />
           <label for="password">password</label>
+          <i class="bi bi-eye-slash" id="lspass" onclick="shpass()"></i>
         </div>
         <p class="recover">
           <a href="#">recover password</a>
         </p>
-        <input type="submit" class="btn signin" value="sign in" name="signin"  onclick="openotpin()" />
+        <input type="submit" class="btn signin" value="sign in" name="signin"   />
       </form>
       <p class="or">------or------</p>
       <div class="icon">

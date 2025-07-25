@@ -1,5 +1,5 @@
 const inpute = document.querySelectorAll("input");
-const button = document.querySelector("button");
+const button = document.getElementById("btn");
 
 inpute.forEach((input, index1) => {
   input.addEventListener("keyup", (e) => {
@@ -79,7 +79,7 @@ function openindex() {
   console.log("Comparison:", comparisonResult);
 
   if (!comparisonResult.includes(false)) {
-    window.open("index.html");
+    window.location.href="index.html";
   } else {
     alert("Invalid OTP");
   }

@@ -116,3 +116,8 @@ button.active {
   background-color: var(--secondary-shade);
   pointer-events: auto;
 }
+
+#reotp{
+   background-color: var(--secondary-shade);
+    pointer-events: auto;
+}
