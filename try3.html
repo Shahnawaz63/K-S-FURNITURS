@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zentro - Modern Online Shopping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #333;
+            --accent-color: #ffbd59;
+            --background-color: #f7f7f9;
+            --text-color: #4f4f4f;
+            --white: #ffffff;
+            --light-gray: #e0e0e0;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden; /* Prevents horizontal scroll */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header & Navbar */
+        .header {
+            background-color: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .navbar-search {
+            flex: 1;
+            display: flex;
+            margin: 0 40px;
+            max-width: 500px;
+        }
+
+        .navbar-search input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            outline: none;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .navbar-search input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .navbar-search button {
+            padding: 0 20px;
+            background: var(--primary-color);
+            border: none;
+            cursor: pointer;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            color: var(--white);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .navbar-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav a {
+            font-size: 24px;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            cursor: pointer;
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .hero-slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .hero-slide {
+            width: 33.333%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 95%;
+            left: 2.5%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .slider-nav button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            color: var(--secondary-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: #5750e0;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 10px 0;
+            color: var(--secondary-color);
+        }
+
+        .product-info .price {
+            font-size: 18px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 5px 0 15px;
+        }
+
+        .product-info .add-to-cart-btn {
+            background: var(--accent-color);
+            border: none;
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            color: var(--secondary-color);
+            transition: background-color 0.3s;
+        }
+
+        .product-info .add-to-cart-btn:hover {
+            background: #ffac36;
+        }
+
+        .product-slider-section {
+            padding: 60px 0;
+        }
+
+        .product-slider-container {
+            position: relative;
+        }
+
+        .product-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none; 
+            padding-bottom: 20px;
+        }
+        
+        .product-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .product-slider .product-card {
+            width: 270px;
+        }
+        
+        .slider-arrow {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            background-color: var(--white);
+            border: 1px solid var(--light-gray);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .prev-arrow { left: -20px; }
+        .next-arrow { right: -20px; }
+
+
+        .footer {
+            background: #1c1c1c;
+            color: var(--light-gray);
+            padding: 60px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-section p, .footer-section a {
+            color: var(--light-gray);
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+        }
+
+        /* --- Responsive Styles --- */
+        
+        /* Tablets and smaller */
+        @media (max-width: 992px) {
+            .navbar-search {
+                margin: 0 20px;
+            }
+            .navbar-links {
+                display: none;
+            }
+            .hamburger-menu {
+                display: block;
+            }
+            .mobile-nav {
+                display: flex;
+            }
+            .hero-content {
+                max-width: 80%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 40px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+            .slider-nav {
+                display: none;
+            }
+            
+            .product-slider-container {
+                padding: 0 10px;
+            }
+            
+            .slider-arrow {
+                display: none; /* Hide arrows on touch devices */
+            }
+        }
+        
+        /* Mobile phones */
+        @media (max-width: 768px) {
+            .navbar-search {
+                display: none;
+            }
+            .hero-slider {
+                height: 400px;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .hero-content p {
+                font-size: 15px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .main-content, .product-slider-section {
+                padding: 40px 0;
+            }
+            .product-slider .product-card {
+                width: 240px;
+            }
+            .footer-content {
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="navbar-logo">Zentro</a>
+            <div class="navbar-search">
+                <input type="text" placeholder="Search for products, brands and more">
+                <button><span class="material-symbols-outlined">search</span></button>
+            </div>
+            <div class="navbar-links">
+                <a href="login.html"><span class="material-symbols-outlined">person</span> Sign In</a>
+                <a href="#"><span class="material-symbols-outlined">shopping_bag</span> Orders</a>
+                <a href="#"><span class="material-symbols-outlined">shopping_cart</span> Cart</a>
+            </div>
+            <div class="hamburger-menu">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="close-menu"><span class="material-symbols-outlined" style="font-size: 32px;">close</span></div>
+        <a href="login.html">Sign In</a>
+        <a href="#">Orders</a>
+        <a href="#">Cart</a>
+    </div>
+
+    <!-- Hero Section Slider -->
+    <section class="hero-slider">
+        <div class="hero-slides">
+            <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(235, 237, 238, 0.8), rgba(255, 255, 255, 0)), url('https://placehold.co/1600x500/e3e6f0/a3acb9?text=Latest+Gadgets')">
+                <div class="container hero-content">
+                    <h1>Find Your Next Favorite Gadget</h1>
+                    <p>Discover the latest trends in electronics and tech. Quality products at prices you'll love.</p>
+                    <a href="#products" class="btn">Shop Electronics</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(235, 237, 238, 0.8), rgba(255, 255, 255, 0)), url('https://placehold.co/1600x500/f0e3f0/b9a3b9?text=Fashion+Sale')">
+                <div class="container hero-content">
+                    <h1>Upgrade Your Style</h1>
+                    <p>Explore our new collection of apparel and accessories. Up to 50% off this season!</p>
+                    <a href="#products" class="btn">Shop Fashion</a>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(235, 237, 238, 0.8), rgba(255, 255, 255, 0)), url('https://placehold.co/1600x500/e3f0f0/a3b9b9?text=Home+Decor')">
+                <div class="container hero-content">
+                    <h1>Beautify Your Living Space</h1>
+                    <p>Find modern and elegant decor for every room in your house.</p>
+                    <a href="#products" class="btn">Shop Home Goods</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button id="prevSlide"><span class="material-symbols-outlined">arrow_back_ios</span></button>
+            <button id="nextSlide"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+        </div>
+        <div class="slider-dots"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content container" id="products">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+            <div class="product-card"> <img src="https://placehold.co/400x400/f0f2f5/333?text=HP+Laptop" alt="Laptop"> <div class="product-info"> <h3>HP Pavilion Laptop</h3> <p class="price">₹45,999</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+            <div class="product-card"> <img src="https://placehold.co/400x400/f0f2f5/333?text=Samsung+Mobile" alt="Mobile"> <div class="product-info"> <h3>Samsung Galaxy S23</h3> <p class="price">₹19,499</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+            <div class="product-card"> <img src="https://placehold.co/400x400/f0f2f5/333?text=boAt+Headphones" alt="Headphones"> <div class="product-info"> <h3>boAt Rockerz 550</h3> <p class="price">₹1,999</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+            <div class="product-card"> <img src="https://placehold.co/400x400/f0f2f5/333?text=Smart+Watch" alt="Smart Watch"> <div class="product-info"> <h3>Fire-Boltt Smart Watch</h3> <p class="price">₹2,999</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+        </div>
+    </main>
+
+    <!-- Top Deals Product Slider -->
+    <section class="product-slider-section container">
+        <h2 class="section-title">Top Deals</h2>
+        <div class="product-slider-container">
+            <button class="slider-arrow prev-arrow"><span class="material-symbols-outlined">arrow_back</span></button>
+            <div class="product-slider">
+                <div class="product-card"> <img src="https://placehold.co/270x220/f0f2f5/333?text=Camera" alt="Camera"> <div class="product-info"> <h3>Sony Alpha Camera</h3> <p class="price">₹89,990</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+                <div class="product-card"> <img src="https://placehold.co/270x220/f0f2f5/333?text=Gaming+Console" alt="Gaming Console"> <div class="product-info"> <h3>PlayStation 5</h3> <p class="price">₹49,990</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+                <div class="product-card"> <img src="https://placehold.co/270x220/f0f2f5/333?text=Sneakers" alt="Sneakers"> <div class="product-info"> <h3>Nike Air Max</h3> <p class="price">₹8,995</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+                <div class="product-card"> <img src="https://placehold.co/270x220/f0f2f5/333?text=Blender" alt="Blender"> <div class="product-info"> <h3>NutriBullet Blender</h3> <p class="price">₹6,499</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+                <div class="product-card"> <img src="https://placehold.co/270x220/f0f2f5/333?text=Backpack" alt="Backpack"> <div class="product-info"> <h3>Safari Pro Backpack</h3> <p class="price">₹1,499</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+                <div class="product-card"> <img src="https://placehold.co/270x220/f0f2f5/333?text=Earbuds" alt="Earbuds"> <div class="product-info"> <h3>Apple AirPods Pro</h3> <p class="price">₹21,900</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+                <div class="product-card"> <img src="https://placehold.co/270x220/f0f2f5/333?text=Keyboard" alt="Keyboard"> <div class="product-info"> <h3>Logitech MX Keys</h3> <p class="price">₹9,995</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+                <div class="product-card"> <img src="https://placehold.co/270x220/f0f2f5/333?text=Coffee+Maker" alt="Coffee Maker"> <div class="product-info"> <h3>Nespresso Coffee Maker</h3> <p class="price">₹14,999</p> <button class="add-to-cart-btn">Add to Cart</button> </div> </div>
+            </div>
+            <button class="slider-arrow next-arrow"><span class="material-symbols-outlined">arrow_forward</span></button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section"> <h4>About Zentro</h4> <p>Your one-stop shop for everything you need. We're dedicated to giving you the very best of products, with a focus on quality, customer service, and uniqueness.</p> </div>
+            <div class="footer-section"> <h4>Shop</h4> <a href="#">Electronics</a> <a href="#">Fashion</a> <a href="#">Home & Kitchen</a> <a href="#">Books</a> </div>
+            <div class="footer-section"> <h4>Support</h4> <a href="#">Contact Us</a> <a href="#">FAQs</a> <a href="#">Shipping & Returns</a> <a href="#">Track Order</a> </div>
+            <div class="footer-section"> <h4>Follow Us</h4> <a href="#">Facebook</a> <a href="#">Twitter</a> <a href="#">Instagram</a> <a href="#">LinkedIn</a> </div>
+        </div>
+        <div class="container footer-bottom"> © 2025 Zentro | All Rights Reserved. </div>
+    </footer>
+
+<script>
+    // --- Mobile Menu ---
+    const hamburger = document.querySelector('.hamburger-menu');
+    const closeMenu = document.querySelector('.close-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    hamburger.addEventListener('click', () => {
+        mobileNav.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+    });
+
+
+    // --- Hero Slider ---
+    const slides = document.querySelector('.hero-slides');
+    const slide = document.querySelectorAll('.hero-slide');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    const dotsContainer = document.querySelector('.slider-dots');
+
+    let currentIndex = 0;
+    const slideCount = slide.length;
+    let autoPlayInterval;
+
+    if (slideCount > 0) {
+        // Create dots
+        for (let i = 0; i < slideCount; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+                stopAutoPlay();
+                startAutoPlay();
+            });
+            dotsContainer.appendChild(dot);
+        }
+        const dots = document.querySelectorAll('.slider-dot');
+
+        const updateDots = () => {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        };
+
+        const goToSlide = (index) => {
+            currentIndex = (index + slideCount) % slideCount;
+            slides.style.transform = `translateX(-${currentIndex * (100 / slideCount)}%)`;
+            updateDots();
+        };
+
+        const startAutoPlay = () => {
+            stopAutoPlay(); // Prevent multiple intervals
+            autoPlayInterval = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 5000);
+        };
+
+        const stopAutoPlay = () => {
+            clearInterval(autoPlayInterval);
+        };
+
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+            stopAutoPlay();
+            startAutoPlay();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+            stopAutoPlay();
+            startAutoPlay();
+        });
+        
+        // Initialize slider
+        goToSlide(0);
+        startAutoPlay();
+    }
+
+
+    // --- Product Slider ---
+    const productSlider = document.querySelector('.product-slider');
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
+
+    if (productSlider) {
+        nextArrow.addEventListener('click', () => {
+            const scrollAmount = productSlider.clientWidth * 0.8;
+            productSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        prevArrow.addEventListener('click', () => {
+            const scrollAmount = productSlider.clientWidth * 0.8;
+            productSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+    }
+</script>
+</body>
+</html>
+
