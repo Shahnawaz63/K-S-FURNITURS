@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recover Password</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <!-- Change: Linking to a new, dedicated CSS file -->
+    <link rel="stylesheet" href="css/recover.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">Reset Password</h1>
+        <p class="info-text">Enter the email associated with your account and we'll send an email with instructions to reset your password.</p>
+        
+        <form id="recoverForm">
+            <div class="input-group">
+                <i class="bi bi-envelope-at"></i>
+                <input type="email" id="recoverEmail" required>
+                <label for="recoverEmail">E-mail</label>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+            
+            <button type="submit" class="btn">Send Reset Link</button>
+        </form>
+        
+        <!-- This message will appear after submission -->
+        <p class="success-message" id="successMessage" style="display: none;"></p>
+
+        <div class="links">
+            <a href="register.html">← Back to Login</a>
+        </div>
+    </div>
+    <script src="js/recover.js"></script>
+</body>
+</html>

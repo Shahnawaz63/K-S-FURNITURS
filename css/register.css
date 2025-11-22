@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Change: Restored your original color palette */
+:root {
+    --primary-base: #ddb892;
+    --primary-tint: #ede0d4;
+    --secondary-tint: #b08968;
+    --secondary-shade: #9c6644;
+    --white: #ffffff;
+    --black: #000000;
+    --grey-text: #757575;
+    --error-red: #d00000;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    /* Change: Reverted to your original background color */
+    background-color: var(--primary-tint);
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 4rem 3.5rem;
+    border-radius: 10px;
+    /* Change: Reverted to your solid white container with a stronger shadow */
+    background: var(--white);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    color: var(--black);
+    animation: fadeIn 0.7s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.form-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--secondary-shade);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group i:not(.toggle-password) {
+    position: absolute;
+    left: 1px;
+    top: 13px;
+    font-size: 2rem;
+    color: var(--grey-text);
+    transition: all 0.3s ease;
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 1rem 0 1rem 3.5rem;
+    font-size: 1.6rem;
+    outline: none;
+    background: transparent;
+    color: var(--black);
+    transition: all 0.3s ease;
+}
+
+.input-group.no-icon input {
+    padding-left: 0.5rem;
+}
+
+.input-group input:focus {
+    border-color: var(--secondary-tint);
+}
+
+.input-group input:focus + i:not(.toggle-password) {
+    color: var(--secondary-shade);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 5px;
+    top: 13px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--grey-text);
+    transition: all 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: var(--secondary-shade);
+}
+
+.error-message {
+    color: var(--error-red);
+    font-size: 1.3rem;
+    padding-top: 0.5rem;
+    height: 2rem;
+    font-weight: 600;
+}
+
+.input-group.error input {
+    border-bottom-color: var(--error-red);
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.recover {
+    text-align: right;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+}
+
+.recover a {
+    text-decoration: none;
+    color: var(--secondary-tint);
+    transition: color 0.3s ease;
+}
+.recover a:hover {
+    color: var(--secondary-shade);
+}
+
+.btn {
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 1.4rem 0;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    background-color: var(--secondary-tint);
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--secondary-shade);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.or {
+    font-size: 1.4rem;
+    margin: 2rem 0;
+    text-align: center;
+    color: var(--grey-text);
+}
+
+.social-icons {
+    text-align: center;
+}
+
+.social-icons i {
+    font-size: 2.4rem;
+    cursor: pointer;
+    margin: 0 1.5rem;
+    color: var(--secondary-tint);
+    transition: all 0.3s;
+}
+
+.social-icons i:hover {
+    transform: scale(1.2) translateY(-2px);
+    color: var(--secondary-shade);
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+}
+
+.links button {
+    color: var(--secondary-tint);
+    border: none;
+    background-color: transparent;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.links button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-shade);
+    transition: width 0.3s ease-out;
+}
+
+.links button:hover::after {
+    width: 100%;
+}
+

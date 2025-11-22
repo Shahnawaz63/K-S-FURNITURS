@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="css/register.css" />
+    <title>Register & Login to K&S Furniturs</title>
+</head>
+<body>
+    <!-- Login Form (Visible by default) -->
+    <div class="container" id="login-container">
+        <h1 class="form-title">Login</h1>
+        <form id="login-form">
+            <div class="input-group">
+                <i class="bi bi-envelope-at"></i>
+                <input type="email" id="login-email" placeholder="E-mail" maxlength="35" />
+                <div class="error-message"></div>
+            </div>
+            <div class="input-group no-icon">
+                <input type="password" id="login-password" placeholder="Password" maxlength="10" />
+                <i class="bi bi-eye-slash toggle-password"></i>
+                <div class="error-message"></div>
+            </div>
+            <p class="recover"><a href="recover.html">Recover password</a></p>
+            <button type="submit" class="btn">Sign In</button>
+        </form>
+        <p class="or">------ or ------</p>
+        <div class="social-icons">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-google"></i>
+        </div>
+        <div class="links">
+            <p>Don't have an account?</p>
+            <button id="show-register-btn">Register</button>
+        </div>
+    </div>
+
+    <!-- Registration Form (Hidden by default) -->
+    <div class="container" id="register-container" style="display: none;">
+        <h1 class="form-title">Register</h1>
+        <form id="register-form">
+            <div class="input-group">
+                <i class="bi bi-person"></i>
+                <input type="text" id="register-name" placeholder="Full Name" maxlength="50" />
+                <div class="error-message"></div>
+            </div>
+            <div class="input-group">
+                <i class="bi bi-envelope-at"></i>
+                <input type="email" id="register-email" placeholder="E-mail" maxlength="35" />
+                <div class="error-message"></div>
+            </div>
+            <div class="input-group no-icon">
+                <input type="password" id="register-password" placeholder="Password" maxlength="10" />
+                <i class="bi bi-eye-slash toggle-password"></i>
+                <div class="error-message"></div>
+            </div>
+            <div class="input-group no-icon">
+                <input type="password" id="confirm-password" placeholder="Confirm Password" maxlength="10" />
+                <i class="bi bi-eye-slash toggle-password"></i>
+                <div class="error-message"></div>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <p class="or">------ or ------</p>
+        <div class="social-icons">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-google"></i>
+        </div>
+        <div class="links">
+            <p>Already have an account?</p>
+            <button id="show-login-btn">Login</button>
+        </div>
+    </div>
+    <script src="js/registration.js"></script>
+</body>
+</html>
